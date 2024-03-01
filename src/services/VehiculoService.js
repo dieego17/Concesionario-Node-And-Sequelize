@@ -13,17 +13,17 @@ const getAllVehiculos = async () =>{
 }
 
 const getOneVehiculo = async (nombre) =>{
-    const Vehiculos = await Vehiculo.findOne(nombre)
+    const Vehiculos = await Vehiculo.findOne({ where:{ nombre_veh: nombre }})
     return Vehiculos
 }
 
 const updateVehiculo = async (newVehiculo, id) =>{
-    const Vehiculos = Vehiculo.update(newVehiculo, id)
+    const Vehiculos = Vehiculo.update(newVehiculo, { where: { id_veh: id } })
     return Vehiculos
 }
 
 const deleteVehiculo = async (id) =>{
-    const Vehiculos = Vehiculo.destroy(id)
+    const Vehiculos = Vehiculo.destroy({ where: { id_veh: id } })
     return Vehiculos
 }
 
